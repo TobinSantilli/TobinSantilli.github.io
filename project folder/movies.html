@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Favorite Movies</title>
+
+  <!-- Link to CUSTOM stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- On-page anchor target -->
+  <a id="top"></a>
+
+  <div class="container">
+
+    <!-- Navigation back to professional site -->
+    <div class="nav">
+      <a href="index.html">← Back to Professional Portfolio</a>
+    </div>
+
+    <div class="header">
+      <h1>My Favorite Movies</h1>
+      <p>This page demonstrates raw HTML & CSS skills (no Bootstrap).</p>
+    </div>
+
+    <!-- Ordered list with embedded unordered list -->
+    <div class="content">
+      <h2>Top Movie Genres</h2>
+      <ol>
+        <li>
+          Science Fiction
+          <ul>
+            <li>Interstellar</li>
+            <li>Blade Runner 2049</li>
+            <li>Dune</li>
+          </ul>
+        </li>
+        <li>
+          Action
+          <ul>
+            <li>Mad Max: Fury Road</li>
+            <li>Inception</li>
+          </ul>
+        </li>
+        <li>
+          Drama
+          <ul>
+            <li>The Shawshank Redemption</li>
+            <li>Whiplash</li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+
+    <!-- Image (NOT from Bootstrap) -->
+    <div class="content">
+      <h2>Favorite Movie Image</h2>
+      <img src="images/interstellar.jpg" alt="Movie poster example">
+    </div>
+
+    <!-- Embedded YouTube video -->
+    <div class="content">
+      <h2>Movie Trailer</h2>
+      <iframe 
+        width="560" 
+        height="315" 
+        src="https://www.youtube.com/embed/zSWdZVtXT7E" 
+        title="Interstellar Trailer"
+        frameborder="0"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <!-- Embedded Tableau visualization -->
+    <div class="content">
+      <h2>Interactive Tableau Visualization</h2>
+      <iframe 
+        src="https://public.tableau.com/views/IMDBTopMovies/Dashboard1?:showVizHome=no&:embed=true"
+        width="800" 
+        height="600">
+      </iframe>
+    </div>
+
+    <!-- On-page anchor link -->
+    <div class="footer">
+      <a href="#top">Back to top ↑</a>
+    </div>
+
+  </div>
+
+</body>
+</html>
