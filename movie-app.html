@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Movie Trivia Game</title>
+
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #111827;
+      color: #f9fafb;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      background-color: #1f2937;
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+      color: #facc15;
+    }
+
+    .clue {
+      font-style: italic;
+      margin: 20px 0;
+    }
+
+    input {
+      width: 80%;
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      margin-bottom: 15px;
+      font-size: 1rem;
+    }
+
+    button {
+      padding: 10px 15px;
+      margin: 5px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .guess-btn {
+      background-color: #22c55e;
+      color: black;
+    }
+
+    .hint-btn {
+      background-color: #3b82f6;
+      color: white;
+    }
+
+    .result {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    .score {
+      margin-top: 20px;
+    }
+
+    .nav-link {
+      display: block;
+      margin-top: 25px;
+      color: #93c5fd;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>🎬 Movie Trivia Game</h1>
+    <p class="clue" id="clue"></p>
+
+    <input type="text" id="guessInput" placeholder="Enter movie title">
+
+    <div>
+      <button class="guess-btn" onclick="checkGuess()">Guess</button>
+      <button class="hint-btn" onclick="showHint()">Hint</button>
+    </div>
+
+    <p class="result" id="result"></p>
+    <p class="score">Score: <span id="score">0</span></p>
+
+    <a href="movies.html" class="nav-link">← Back to Scratch Page</a>
+  </div>
+
+  <script>
+    const movies = [
+      {
+        title: "Interstellar",
+        clue: "A space mission attempts to save humanity through a wormhole.",
+        hint: "Directed by Christopher Nolan"
+      },
+      {
+        title: "The Matrix",
+        clue: "A hacker learns reality is not what it seems.",
+        hint: "Red pill or blue pill?"
+      },
+      {
+        title: "Inception",
+        clue: "Dreams within dreams within dreams.",
+        hint: "A spinning top"
+      },
+      {
+        title: "The Shawshank Redemption",
+        clue: "Hope can set you free.",
+        hint: "A prison drama"
+      }
+    ];
+
+    let currentMovie;
+    let score = 0;
+
+    function loadMovie() {
+      const randomIndex = Math.floor(Math.random() * movies.length);
+      currentMovie = movies[randomIndex];
+      document.getElementById("clue").textContent = currentMovie.clue;
+      document.getElementById("result").textContent = "";
+      document.getElementById("guessInput").value = "";
+    }
+
+    function checkGuess() {
+      const guess = document.getElementById("guessInput").value.trim().toLowerCase();
+
+      if (guess === currentMovie.title.toLowerCase()) {
+        document.getElementById("result").textContent = "✅ Correct!";
+        score++;
+        document.getElementById("score").textContent = score;
+        setTimeout(loadMovie, 1500);
+      } else {
+        document.getElementById("result").textContent = "❌ Try again!";
+      }
+    }
+
+    function showHint() {
+      document.getElementById("result").textContent =
+        "Hint: " + currentMovie.hint;
+    }
+
+    loadMovie();
+  </script>
+
+</body>
+</html>
